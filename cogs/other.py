@@ -221,3 +221,9 @@ def setup(bot: commands.Bot):
         messages=MessageManager(bot.database, **bot.config["Chain"]),
         blacklist=bot.database.bannedLinks
     ))
+
+@bot.event
+async def on_message(message):
+    # ...
+    if "job" in message.content.lower() and random.random() < 0.5:
+        await message.reply("https://cdn.discordapp.com/attachments/1247928067356233774/1385326108961931304/20250615_125315.png")
